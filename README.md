@@ -1,5 +1,5 @@
 
-  # Challenge-12: Employee Tracker
+  # Challenge-13: E-commerce Backend
 
   ## Description
   This application is written with MySQL & Javascript to allow users to Create, Read, Update, and Delete (CRUD) employee records detailing roles, departments, and salaries.
