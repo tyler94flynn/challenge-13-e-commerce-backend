@@ -4,56 +4,32 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 // The `/api/products` endpoint
 
 // get all products
-router.get('/', (req, res) => {
-  Product.findAll({
-    attributes: ["id", "product_name", "price", "stock", "category_id"],
-    include: [
-      {
-        model: Category,
-        attributes: ["id", "category_name"],
-      },
-      {
-        model: Tag,
-        attributes: ["id", "tag_name"],
-      },
-    ],
-  })
-    .then((dbProductData) => res.json(dbProductData))
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+router.get('/', async (req, res) => {
+  // find all products
+  // be sure to include its associated Category and Tag data
+	try {
+		const productData = await Product.findAll({
+			include: [{	model: Category }, { model: Tag, through: ProductTag }]
+		});
+		res.status(200).json(productData);
+	} catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 // get one product
-router.get('/:id', (req, res) => {
-  Product.findOne({
-    attributes: ["id", "product_name", "price", "stock", "category_id"],
-    where: {
-      id: req.params.id,
-    },
-    include: [
-      {
-        model: Category,
-        attributes: ["id", "category_name"],
-      },
-      {
-        model: Tag,
-        attributes: ["id", "tag_name"],
-      },
-    ],
-  })
-    .then((dbProductData) => {
-      if (!dbProductData) {
-        res.status(404).json({ message: "No Product found with this id" });
-        return;
-      }
-      res.json(dbProductData);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
+router.get('/:id', async (req, res) => {
+  try {
+    const productData = await Product.findByPk(req.params.id, {
+      include: [{ model: Category }, { model: Tag, through: ProductTag }]
     });
+    if (!productData) {
+      res.status(404).json({ message: '404 ID NOT FOUND' });
+      return;
+    } res.status(200).json(productData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 // create new product
