@@ -26,7 +26,7 @@
   
 Demonstration of functionality:
 
-  ![Demo of installation and usage](example.gif)
+[Demo of installation and usage]()
 
   ## License ![License](https://img.shields.io/badge/License-MIT-yellow.svg) [MIT](https://opensource.org/licenses/MIT)
 
