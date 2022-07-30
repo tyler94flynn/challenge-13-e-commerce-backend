@@ -2,7 +2,7 @@
   # Challenge-13: E-commerce Backend
 
   ## Description
-  This application is written with MySQL & Javascript to allow users to Create, Read, Update, and Delete (CRUD) employee records detailing roles, departments, and salaries.
+  This application is written in Javascript using MySQL and the Sequelize package to create an e-commerce back-end for CRUD operations on an inventory database.
 
   ## Table of Contents
   - [Description](#description)
@@ -10,8 +10,6 @@
   - [Usage](#usage)
   - [License](#license)
   - [Contributors](#contributors)
-  - [Tests](#tests)
-  - [Questions](#questions)
   - [Contact](#contact)
 
   ## Installation
@@ -20,24 +18,18 @@
   - Install MySQL to your computer.
 
   ## Usage
-  - Run MySQL in the location you've downloaded this application to, and input your password when prompted.
-  - Use the command "node app.js" in your CLI, and you can then interact with the database, as shown below.
+  - Create a .env file containing your database name & MSQL username and password in the root directory. 
+  - Use the command "npm run seed", then "npm start." The data manipulation will be easily accessible through a tool like Insomnia, as shown below in the demonstration.
 
   
 Demonstration of functionality:
 
-[Demo of installation and usage]()
+[Video demo of installation and usage](https://youtu.be/VzuuYmimHJs)
 
   ## License ![License](https://img.shields.io/badge/License-MIT-yellow.svg) [MIT](https://opensource.org/licenses/MIT)
 
   ## Contributors
   Tyler Flynn
-
-  ## Tests
-  N/A
-
-  ## Questions
-  N/A
 
   ## Contact
   [GitHub](https://github.com/tyler94flynn)
